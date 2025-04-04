@@ -99,7 +99,7 @@ centers.forEach((c, i) => {
 
         const c = centers[idx];
 
-        const phoneLine1 = `<span style="color: #427690;">${phoneLabel1}:</span> <a href="tel:${phone1}" style="color: #427690; text-decoration: none;">${phone1}</a><br>`;
+        const phoneLine1 = `<span style="color: #6e6e6e;">${phoneLabel1}:</span> <a href="tel:${phone1}" style="color: #427690; text-decoration: none;">${phone1}</a><br>`;
         const phoneLine2 = phone2 ? `<span style="color: #427690;">${phoneLabel2}:</span> <a href="tel:${phone2}" style="color: #427690; text-decoration: none;">${phone2}</a><br>` : '';
 
         const signature = `
@@ -107,13 +107,13 @@ centers.forEach((c, i) => {
   <tr>
     <td style="vertical-align: top;">
       <p style="margin: 0; font-size: 15px; font-weight: bold; color: #e43926;">${name}</p>
-      <p style="margin: 0; color: #427690;">${title}</p>
+      <p style="margin: 0; color: #6e6e6e;">${title}</p>
       <p style="margin: 0; color: #427690;">${c.name}</p>
-      <p style="margin: 8px 0 0 0; color: #427690;">
+      <p style="margin: 4px 0 4px 0; color: #6e6e6e;">
         ${c.address1}<br>
         ${c.address2}
       </p>
-      <p style="margin: 8px 0 0 0;">
+      <p style="margin: 4px 0 4px 0;">
         ${phoneLine1}
         ${phoneLine2}
         <a href="mailto:${email}" style="color: #427690; text-decoration: none;">${email}</a><br>

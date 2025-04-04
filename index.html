@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
     <base target="_top">
     <style>
-      body { font-family: Arial, sans-serif; padding: 2em; }
+      body { font-family: 'Readex Pro', Arial, sans-serif; padding: 2em; }
       .form-field { display: block; margin-bottom: 25px; max-width: 400px; width: 100%; }
       select, input { padding: 6px; width: 100%; }
       .signature { margin-top: 2em; border: 1px solid #ccc; padding: 1em; background: #f9f9f9; }
@@ -51,34 +52,34 @@
 
     <script>
       const centers = [
-        { name: "RiteCare Childhood Language Center of Bakersfield", address1: "1920 18th St.", address2: "Bakersfield, CA 93301", slug: "bakersfield" },
-        { name: "RiteCare Childhood Language Center of Burlingame", address1: "145 Park Rd.", address2: "Burlingame, CA 94010", slug: "burlingame" },
-        { name: "RiteCare Childhood Language Center of Coachella Valley", address1: "42600 Cook St. #210", address2: "Palm Desert, CA 92211", slug: "coachellavalley" },
-        { name: "FRESNO STATE - SCOTTISH RITE SPEECH AND LANGUAGE CLINIC", address1: "1435 L Street", address2: "Fresno, CA 93721", slug: "fresno" },
-        { name: "Long Beach Scottish Rite Childhood Language Program", address1: "1250 Bellflower Blvd.", address2: "Long Beach, CA  90840", slug: "longbeach" },
-        { name: "Los Angeles Scottish Rite Childhood Language Program", address1: "5151 State University Dr", address2: "Los Angeles, CA 90032", slug: "losangeles" },
-        { name: "RiteCare Childhood Language Center of Northern California", address1: "922 Main St.", address2: "Fortuna, CA 5540", slug: "northerncalifornia" },
-        { name: "RiteCare Childhood Language Center of Oakland", address1: "1547 Lakeside Dr.", address2: "Oakland, CA 94612", slug: "oakland" },
-        { name: "RiteCare Childhood Language Center of Orange County", address1: "2001 E. 4th St. #202", address2: "Santa Ana, CA 92705", slug: "orangecounty" },
-        { name: "RiteCare Childhood Language Center of Pasadena", address1: "150 N. Madison Ave.", address2: "Pasadena, CA 91101", slug: "pasadena" },
-        { name: "RiteCare Childhood Language Center of Sacramento", address1: "6151 H Street", address2: "Sacramento, CA 95819", slug: "sacramento" },
-        { name: "RiteCare Childhood Language Center of San Bernardino", address1: "473 E. Carnegie Dr. Ste. 200", address2: "San Bernardino, CA 92408", slug: "sanbernardino" },
-        { name: "RiteCare Childhood Language Center of San Diego", address1: "1561 Camino del Rio South", address2: "San Diego, CA 92108", slug: "sandiego" },
-        { name: "RiteCare Childhood Language Center of San Francisco", address1: "2850 19th Ave.", address2: "San Francisco, CA 94132", slug: "sanfrancisco" },
-        { name: "RiteCare Childhood Language Center of San Jose", address1: "2455 Masonic Dr.", address2: "San Jose, CA 95125", slug: "sanjose" },
-        { name: "RiteCare Childhood Language Center of Santa Barbara", address1: "16 E. Carrillo St", address2: "Santa Barbara, CA 93101", slug: "santabarbara" },
-        { name: "RiteCare Childhood Language Center of Santa Rosa", address1: "1150 N. McDowell Blvd", address2: "Petaluma, CA 94975", slug: "santarosa" },
-        { name: "RiteCare Childhood Language Center of Stockton", address1: "3301 N. Center St.", address2: "Stockton, CA 95204", slug: "stockton" },
-        { name: "RiteCare Childhood Language Center of Ventura", address1: "5021 Verdugo Way #105", address2: "Camarillo, CA 93012", slug: "ventura" }
-      ];
+  { name: "RiteCare Childhood Language Center of Bakersfield", address1: "1920 18th St.", address2: "Bakersfield, CA 93301", slug: "bakersfield" },
+  { name: "RiteCare Childhood Language Center of Burlingame", address1: "145 Park Rd.", address2: "Burlingame, CA 94010", slug: "burlingame" },
+  { name: "RiteCare Childhood Language Center of Coachella Valley", address1: "42600 Cook St. #210", address2: "Palm Desert, CA 92211", slug: "coachellavalley" },
+  { name: "FRESNO STATE - SCOTTISH RITE SPEECH AND LANGUAGE CLINIC", address1: "1435 L Street", address2: "Fresno, CA 93721", slug: "fresno" },
+  { name: "Long Beach Scottish Rite Childhood Language Program", address1: "1250 Bellflower Blvd.", address2: "Long Beach, CA  90840", slug: "longbeach" },
+  { name: "Los Angeles Scottish Rite Childhood Language Program", address1: "5151 State University Dr", address2: "Los Angeles, CA 90032", slug: "losangeles" },
+  { name: "RiteCare Childhood Language Center of Northern California", address1: "922 Main St.", address2: "Fortuna, CA 5540", slug: "northerncalifornia" },
+  { name: "RiteCare Childhood Language Center of Oakland", address1: "1547 Lakeside Dr.", address2: "Oakland, CA 94612", slug: "oakland" },
+  { name: "RiteCare Childhood Language Center of Orange County", address1: "2001 E. 4th St. #202", address2: "Santa Ana, CA 92705", slug: "orangecounty" },
+  { name: "RiteCare Childhood Language Center of Pasadena", address1: "150 N. Madison Ave.", address2: "Pasadena, CA 91101", slug: "pasadena" },
+  { name: "RiteCare Childhood Language Center of Sacramento", address1: "6151 H Street", address2: "Sacramento, CA 95819", slug: "sacramento" },
+  { name: "RiteCare Childhood Language Center of San Bernardino", address1: "473 E. Carnegie Dr. Ste. 200", address2: "San Bernardino, CA 92408", slug: "sanbernardino" },
+  { name: "RiteCare Childhood Language Center of San Diego", address1: "1561 Camino del Rio South", address2: "San Diego, CA 92108", slug: "sandiego" },
+  { name: "RiteCare Childhood Language Center of San Francisco", address1: "2850 19th Ave.", address2: "San Francisco, CA 94132", slug: "sanfrancisco" },
+  { name: "RiteCare Childhood Language Center of San Jose", address1: "2455 Masonic Dr.", address2: "San Jose, CA 95125", slug: "sanjose" },
+  { name: "RiteCare Childhood Language Center of Santa Barbara", address1: "16 E. Carrillo St", address2: "Santa Barbara, CA 93101", slug: "santabarbara" },
+  { name: "RiteCare Childhood Language Center of Santa Rosa", address1: "1150 N. McDowell Blvd", address2: "Petaluma, CA 94975", slug: "santarosa" },
+  { name: "RiteCare Childhood Language Center of Stockton", address1: "3301 N. Center St.", address2: "Stockton, CA 95204", slug: "stockton" },
+  { name: "RiteCare Childhood Language Center of Ventura", address1: "5021 Verdugo Way #105", address2: "Camarillo, CA 93012", slug: "ventura" }
+];
 
-      const select = document.getElementById('center');
-      centers.forEach((c, i) => {
-        const option = document.createElement('option');
-        option.value = i;
-        option.textContent = c.name;
-        select.appendChild(option);
-      });
+const select = document.getElementById('center');
+centers.forEach((c, i) => {
+  const option = document.createElement('option');
+  option.value = i;
+  option.textContent = c.name;
+  select.appendChild(option);
+});
 
       document.querySelectorAll('#center, #fullname, #title, #email, #phone1, #phone2, #phoneLabel1, #phoneLabel2').forEach(el => {
         el.addEventListener('input', generateSignature);
@@ -119,11 +120,12 @@
         <a href="https://casrf.org/${c.slug}" style="color: #427690; text-decoration: none;">casrf.org/${c.slug}</a>
       </p>
       <p style="margin-top: 16px;">
-        <img src="https://raw.githubusercontent.com/casrfdev/ritecare-signature/refs/heads/main/RiteCare_Logo_Transparent_Clean.png" alt="RiteCare Logo" style="width: 120px; max-width: 120px; height: auto;">
+        <img src="https://raw.githubusercontent.com/casrfdev/casrf-signature-generator/refs/heads/main/RiteCare_Logo_Transparent_Clean.png" alt="RiteCare Logo" style="width: 120px; max-width: 120px; height: auto;">
       </p>
     </td>
   </tr>
 </table>`;
+
         document.getElementById('signatureOutput').innerHTML = signature;
       }
     </script>

@@ -49,12 +49,12 @@
     <label class="form-field" for="title">Title:
       <select id="title">
         <option value="">-- Select Title --</option>
-        <option>Board Member</option>
-        <option>Board Chair</option>
-        <option>Trustee</option>
         <option>Speech-Language Pathologist</option>
         <option>Speech-Language Pathologist, Clinic Director</option>
         <option>CASRF Speech-Language Pathologist Chair & Center Director</option>
+        <option>Board Member</option>
+        <option>Board Chair</option>
+        <option>Trustee</option>
       </select>
     </label>
 
@@ -64,21 +64,30 @@
     </label>
 
     <!-- Phone Fields -->
-    <label class="form-field">Phone Number 1:
+    <label class="form-field" for="phone1">Phone Number 1:
       <select id="phoneLabel1">
         <option>Tel</option>
         <option>Mobile</option>
         <option>Fax</option>
+        <option>Direct</option>
       </select><br>
       <input id="phone1" type="tel">
     </label>
-
     <label class="form-field">Phone Number 2 (optional):
       <select id="phoneLabel2">
         <option>Mobile</option>
         <option>Fax</option>
+        <option>Direct</option>
       </select><br>
       <input id="phone2" type="tel">
+    </label>
+    <label class="form-field">Phone Number 3 (optional):
+      <select id="phoneLabel3">
+        <option>Mobile</option>
+        <option>Fax</option>
+        <option>Direct</option>
+      </select><br>
+      <input id="phone3" type="tel">
     </label>
 
     <!-- Signature Preview -->
@@ -109,34 +118,32 @@
         { name: "RiteCare Childhood Language Center of Ventura", address1: "5021 Verdugo Way #105", address2: "Camarillo, CA 93012", slug: "ventura" }
       ];
 
-      const select = document.getElementById('center');
-      centers.forEach((c, i) => {
-        const option = document.createElement('option');
-        option.value = i;
-        option.textContent = c.name;
-        select.appendChild(option);
-      });
-
-      document.querySelectorAll('#center, #fullname, #title, #email, #phone1, #phone2, #phoneLabel1, #phoneLabel2').forEach(el => {
-        el.addEventListener('input', generateSignature);
+      // Listen to inputs
+      ['center','fullname','title','email','phone1','phoneLabel1','phone2','phoneLabel2','phone3','phoneLabel3'].forEach(id => {
+        document.getElementById(id).addEventListener('input', generateSignature);
       });
 
       function generateSignature() {
         const idx = document.getElementById('center').value;
-        const name = document.getElementById('fullname').value;
+        const name = document.getElementById('fullname').value.trim();
         const title = document.getElementById('title').value;
-        const email = document.getElementById('email').value;
-        const phone1 = document.getElementById('phone1').value;
+        const email = document.getElementById('email').value.trim();
+        const phone1 = document.getElementById('phone1').value.trim();
         const phoneLabel1 = document.getElementById('phoneLabel1').value;
-        const phone2 = document.getElementById('phone2').value;
+        const phone2 = document.getElementById('phone2').value.trim();
         const phoneLabel2 = document.getElementById('phoneLabel2').value;
+        const phone3 = document.getElementById('phone3').value.trim();
+        const phoneLabel3 = document.getElementById('phoneLabel3').value;
 
-        if (idx === '' || !name || !title || !email || !phone1) return;
+        if (idx === '' || !name || !title || !email || !phone1) {
+          document.getElementById('signatureOutput').innerHTML = 'Please complete all required fields.';
+          return;
+        }
 
         const c = centers[idx];
-
         const phoneLine1 = `<span style="color: #6e6e6e;">${phoneLabel1}:</span> <a href="tel:${phone1}" style="color: #6e6e6e; text-decoration: none;">${phone1}</a><br>`;
         const phoneLine2 = phone2 ? `<span style="color: #6e6e6e;">${phoneLabel2}:</span> <a href="tel:${phone2}" style="color: #6e6e6e; text-decoration: none;">${phone2}</a><br>` : '';
+        const phoneLine3 = phone3 ? `<span style="color: #6e6e6e;">${phoneLabel3}:</span> <a href="tel:${phone3}" style="color: #6e6e6e; text-decoration: none;">${phone3}</a><br>` : '';
 
         const signature = `
 <table cellpadding="0" cellspacing="0" style="font-family: 'Readex Pro', Arial, Helvetica, sans-serif; font-size: 12px; color: #6e6e6e; line-height: 1.0;">
@@ -152,8 +159,9 @@
       <p style="margin: 0">
         ${phoneLine1}
         ${phoneLine2}
-        <a href=\"mailto:${email}\" style=\"color: #6e6e6e; text-decoration: none;\">${email}</a><br>
-        <a href=\"https://casrf.org/${c.slug}\" style=\"color: #6e6e6e; text-decoration: none;\">casrf.org/${c.slug}</a>
+        ${phoneLine3}
+        <a href="mailto:${email}" style="color: #6e6e6e; text-decoration: none;">${email}</a><br>
+        <a href="https://casrf.org/${c.slug}" style="color: #6e6e6e; text-decoration: none;">casrf.org/${c.slug}</a>
       </p>
       <p style="margin-top: 16px;">
         <img src="https://raw.githubusercontent.com/casrfdev/ritecare-signature/refs/heads/main/RiteCare_Logo_Transparent_Clean.png" alt="RiteCare Logo" style="width: 120px; max-width: 120px; height: auto;">

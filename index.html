@@ -18,6 +18,25 @@
     <label class="form-field" for="center">Choose your Center:
       <select id="center">
         <option value="">-- Select Center --</option>
+        <option value="0">RiteCare Childhood Language Center of Bakersfield</option>
+        <option value="1">RiteCare Childhood Language Center of Burlingame</option>
+        <option value="2">RiteCare Childhood Language Center of Coachella Valley</option>
+        <option value="3">FRESNO STATE - SCOTTISH RITE SPEECH AND LANGUAGE CLINIC</option>
+        <option value="4">Long Beach Scottish Rite Childhood Language Program</option>
+        <option value="5">Los Angeles Scottish Rite Childhood Language Program</option>
+        <option value="6">RiteCare Childhood Language Center of Northern California</option>
+        <option value="7">RiteCare Childhood Language Center of Oakland</option>
+        <option value="8">RiteCare Childhood Language Center of Orange County</option>
+        <option value="9">RiteCare Childhood Language Center of Pasadena</option>
+        <option value="10">RiteCare Childhood Language Center of Sacramento</option>
+        <option value="11">RiteCare Childhood Language Center of San Bernardino</option>
+        <option value="12">RiteCare Childhood Language Center of San Diego</option>
+        <option value="13">RiteCare Childhood Language Center of San Francisco</option>
+        <option value="14">RiteCare Childhood Language Center of San Jose</option>
+        <option value="15">RiteCare Childhood Language Center of Santa Barbara</option>
+        <option value="16">RiteCare Childhood Language Center of Santa Rosa</option>
+        <option value="17">RiteCare Childhood Language Center of Stockton</option>
+        <option value="18">RiteCare Childhood Language Center of Ventura</option>
       </select>
     </label>
 
@@ -33,6 +52,9 @@
         <option>Board Member</option>
         <option>Board Chair</option>
         <option>Trustee</option>
+        <option>Speech-Language Pathologist</option>
+        <option>Speech-Language Pathologist, Clinic Director</option>
+        <option>CASRF Speech-Language Pathologist Chair & Center Director</option>
       </select>
     </label>
 
@@ -41,10 +63,16 @@
       <input id="email" type="email">
     </label>
 
-    <!-- Phone 1 always main -->
-    <!-- Removed editable phone1 -->
+    <!-- Phone Fields -->
+    <label class="form-field">Phone Number 1:
+      <select id="phoneLabel1">
+        <option>Tel</option>
+        <option>Mobile</option>
+        <option>Fax</option>
+      </select><br>
+      <input id="phone1" type="tel">
+    </label>
 
-    <!-- Phone 2 Field -->
     <label class="form-field">Phone Number 2 (optional):
       <select id="phoneLabel2">
         <option>Mobile</option>
@@ -61,81 +89,80 @@
     <script>
       const centers = [
         { name: "RiteCare Childhood Language Center of Bakersfield", address1: "1920 18th St.", address2: "Bakersfield, CA 93301", slug: "bakersfield" },
-  { name: "RiteCare Childhood Language Center of Burlingame", address1: "145 Park Rd.", address2: "Burlingame, CA 94010", slug: "burlingame" },
-  { name: "RiteCare Childhood Language Center of Coachella Valley", address1: "41865 Boardwalk, Suite 219", address2: "Palm Desert, CA 92211", slug: "coachellavalley" },
-  { name: "FRESNO STATE - SCOTTISH RITE SPEECH AND LANGUAGE CLINIC", address1: "1435 L Street", address2: "Fresno, CA 93721", slug: "fresno" },
-  { name: "Long Beach Scottish Rite Childhood Language Program", address1: "1250 Bellflower Blvd.", address2: "Long Beach, CA  90840", slug: "longbeach" },
-  { name: "Los Angeles Scottish Rite Childhood Language Program", address1: "5151 State University Dr", address2: "Los Angeles, CA 90032", slug: "losangeles" },
-  { name: "RiteCare Childhood Language Center of Northern California", address1: "922 Main St.", address2: "Fortuna, CA 5540", slug: "northerncalifornia" },
-  { name: "RiteCare Childhood Language Center of Oakland", address1: "1547 Lakeside Dr.", address2: "Oakland, CA 94612", slug: "oakland" },
-  { name: "RiteCare Childhood Language Center of Orange County", address1: "2001 E. 4th St. #202", address2: "Santa Ana, CA 92705", slug: "orangecounty" },
-  { name: "RiteCare Childhood Language Center of Pasadena", address1: "150 N. Madison Ave.", address2: "Pasadena, CA 91101", slug: "pasadena" },
-  { name: "RiteCare Childhood Language Center of Sacramento", address1: "6151 H Street", address2: "Sacramento, CA 95819", slug: "sacramento" },
-  { name: "RiteCare Childhood Language Center of San Bernardino", address1: "473 E. Carnegie Dr. Ste. 200", address2: "San Bernardino, CA 92408", slug: "sanbernardino" },
-  { name: "RiteCare Childhood Language Center of San Diego", address1: "1561 Camino del Rio South", address2: "San Diego, CA 92108", slug: "sandiego" },
-  { name: "RiteCare Childhood Language Center of San Francisco", address1: "2850 19th Ave.", address2: "San Francisco, CA 94132", slug: "sanfrancisco" },
-  { name: "RiteCare Childhood Language Center of San Jose", address1: "2455 Masonic Dr.", address2: "San Jose, CA 95125", slug: "sanjose" },
-  { name: "RiteCare Childhood Language Center of Santa Barbara", address1: "16 E. Carrillo St", address2: "Santa Barbara, CA 93101", slug: "santabarbara" },
-  { name: "RiteCare Childhood Language Center of Santa Rosa", address1: "755 Baywood Dr Suite 217", address2: "Petaluma, CA 94954", slug: "santarosa" },
-  { name: "RiteCare Childhood Language Center of Stockton", address1: "3301 N. Center St.", address2: "Stockton, CA 95204", slug: "stockton" },
-  { name: "RiteCare Childhood Language Center of Ventura", address1: "5021 Verdugo Way #105", address2: "Camarillo, CA 93012", slug: "ventura" }
+        { name: "RiteCare Childhood Language Center of Burlingame", address1: "145 Park Rd.", address2: "Burlingame, CA 94010", slug: "burlingame" },
+        { name: "RiteCare Childhood Language Center of Coachella Valley", address1: "41865 Boardwalk, Suite 219", address2: "Palm Desert, CA 92211", slug: "coachellavalley" },
+        { name: "FRESNO STATE - SCOTTISH RITE SPEECH AND LANGUAGE CLINIC", address1: "1435 L Street", address2: "Fresno, CA 93721", slug: "fresno" },
+        { name: "Long Beach Scottish Rite Childhood Language Program", address1: "1250 Bellflower Blvd.", address2: "Long Beach, CA 90840", slug: "longbeach" },
+        { name: "Los Angeles Scottish Rite Childhood Language Program", address1: "5151 State University Dr", address2: "Los Angeles, CA 90032", slug: "losangeles" },
+        { name: "RiteCare Childhood Language Center of Northern California", address1: "922 Main St.", address2: "Fortuna, CA 95540", slug: "northerncalifornia" },
+        { name: "RiteCare Childhood Language Center of Oakland", address1: "1547 Lakeside Dr.", address2: "Oakland, CA 94612", slug: "oakland" },
+        { name: "RiteCare Childhood Language Center of Orange County", address1: "2001 E. 4th St. #202", address2: "Santa Ana, CA 92705", slug: "orangecounty" },
+        { name: "RiteCare Childhood Language Center of Pasadena", address1: "150 N. Madison Ave.", address2: "Pasadena, CA 91101", slug: "pasadena" },
+        { name: "RiteCare Childhood Language Center of Sacramento", address1: "6151 H Street", address2: "Sacramento, CA 95819", slug: "sacramento" },
+        { name: "RiteCare Childhood Language Center of San Bernardino", address1: "473 E. Carnegie Dr. Ste. 200", address2: "San Bernardino, CA 92408", slug: "sanbernardino" },
+        { name: "RiteCare Childhood Language Center of San Diego", address1: "1561 Camino del Rio South", address2: "San Diego, CA 92108", slug: "sandiego" },
+        { name: "RiteCare Childhood Language Center of San Francisco", address1: "2850 19th Ave.", address2: "San Francisco, CA 94132", slug: "sanfrancisco" },
+        { name: "RiteCare Childhood Language Center of San Jose", address1: "2455 Masonic Dr.", address2: "San Jose, CA 95125", slug: "sanjose" },
+        { name: "RiteCare Childhood Language Center of Santa Barbara", address1: "16 E. Carrillo St", address2: "Santa Barbara, CA 93101", slug: "santabarbara" },
+        { name: "RiteCare Childhood Language Center of Santa Rosa", address1: "755 Baywood Dr Suite 217", address2: "Petaluma, CA 94954", slug: "santarosa" },
+        { name: "RiteCare Childhood Language Center of Stockton", address1: "3301 N. Center St.", address2: "Stockton, CA 95204", slug: "stockton" },
+        { name: "RiteCare Childhood Language Center of Ventura", address1: "5021 Verdugo Way #105", address2: "Camarillo, CA 93012", slug: "ventura" }
       ];
 
-      const centerSelect = document.getElementById('center');
-      centers.forEach((c,i) => {
-        const opt = document.createElement('option');
-        opt.value = i;
-        opt.textContent = c.name;
-        centerSelect.appendChild(opt);
+      const select = document.getElementById('center');
+      centers.forEach((c, i) => {
+        const option = document.createElement('option');
+        option.value = i;
+        option.textContent = c.name;
+        select.appendChild(option);
       });
 
-      // Listen to inputs
-      ['center','fullname','title','email','phone2','phoneLabel2'].forEach(id => {
-        document.getElementById(id).addEventListener('input', generateSignature);
+      document.querySelectorAll('#center, #fullname, #title, #email, #phone1, #phone2, #phoneLabel1, #phoneLabel2').forEach(el => {
+        el.addEventListener('input', generateSignature);
       });
 
       function generateSignature() {
-        const idx = centerSelect.value;
-        const name = document.getElementById('fullname').value.trim();
+        const idx = document.getElementById('center').value;
+        const name = document.getElementById('fullname').value;
         const title = document.getElementById('title').value;
-        const email = document.getElementById('email').value.trim();
-        const phone2 = document.getElementById('phone2').value.trim();
+        const email = document.getElementById('email').value;
+        const phone1 = document.getElementById('phone1').value;
+        const phoneLabel1 = document.getElementById('phoneLabel1').value;
+        const phone2 = document.getElementById('phone2').value;
         const phoneLabel2 = document.getElementById('phoneLabel2').value;
-        
-        if(idx === '' || !name || !title || !email) {
-          document.getElementById('signatureOutput').innerHTML = 'Please complete all required fields.';
-          return;
-        }
+
+        if (idx === '' || !name || !title || !email || !phone1) return;
 
         const c = centers[idx];
-        const phoneLine1 = `<span style=\"color:#6e6e6e;\">Main:</span> <a href=\"tel:+17145477325\" style=\"color:#6e6e6e;text-decoration:none;\">(714) 547-7325</a><br>`;
-        const phoneLine2 = phone2 ? `<span style=\"color:#6e6e6e;\">${phoneLabel2}:</span> <a href=\"tel:${phone2}\" style=\"color:#6e6e6e;text-decoration:none;\">${phone2}</a><br>` : '';
 
-        const sigHTML = `
-<table cellpadding="0" cellspacing="0" style="font-family:'Readex Pro',Arial,sans-serif;font-size:12px;color:#6e6e6e;line-height:1.0;">
+        const phoneLine1 = `<span style="color: #6e6e6e;">${phoneLabel1}:</span> <a href="tel:${phone1}" style="color: #6e6e6e; text-decoration: none;">${phone1}</a><br>`;
+        const phoneLine2 = phone2 ? `<span style="color: #6e6e6e;">${phoneLabel2}:</span> <a href="tel:${phone2}" style="color: #6e6e6e; text-decoration: none;">${phone2}</a><br>` : '';
+
+        const signature = `
+<table cellpadding="0" cellspacing="0" style="font-family: 'Readex Pro', Arial, Helvetica, sans-serif; font-size: 12px; color: #6e6e6e; line-height: 1.0;">
   <tr>
-    <td style="vertical-align:top;">
-      <p style="margin:0;font-size:15px;font-weight:bold;color:#e43926;">${name}</p>
-      <p style="margin:0;font-weight:bold;color:#6e6e6e;">${title}</p>
-      <p style="margin:0;font-weight:bold;color:#6e6e6e;">${c.name}</p>
-      <p style="margin:9px 0 0 0;color:#6e6e6e;">
+    <td style="vertical-align: top;">
+      <p style="margin: 0; font-size: 15px; font-weight: bold; color: #e43926;">${name}</p>
+      <p style="margin: 0; font-weight: bold; color: #6e6e6e;">${title}</p>
+      <p style="margin: 0; font-weight: bold; color: #6e6e6e;">${c.name}</p>
+      <p style="margin: 9px 0 0px 0; color: #6e6e6e;">
         ${c.address1}<br>
         ${c.address2}
       </p>
-      <p style="margin:0;">
+      <p style="margin: 0">
         ${phoneLine1}
         ${phoneLine2}
-        <a href=\"mailto:${email}\" style=\"color:#6e6e6e;text-decoration:none;\">${email}</a><br>
-        <a href=\"https://casrf.org/${c.slug}\" style=\"color:#6e6e6e;text-decoration:none;\">casrf.org/${c.slug}</a>
+        <a href=\"mailto:${email}\" style=\"color: #6e6e6e; text-decoration: none;\">${email}</a><br>
+        <a href=\"https://casrf.org/${c.slug}\" style=\"color: #6e6e6e; text-decoration: none;\">casrf.org/${c.slug}</a>
       </p>
-      <p style="margin-top:16px;">
-        <img src="https://raw.githubusercontent.com/casrfdev/ritecare-signature/refs/heads/main/RiteCare_Logo_Transparent_Clean.png" alt="RiteCare Logo" style="width:120px;height:auto;border:none;">
+      <p style="margin-top: 16px;">
+        <img src="https://raw.githubusercontent.com/casrfdev/ritecare-signature/refs/heads/main/RiteCare_Logo_Transparent_Clean.png" alt="RiteCare Logo" style="width: 120px; max-width: 120px; height: auto;">
       </p>
     </td>
   </tr>
 </table>`;
 
-        document.getElementById('signatureOutput').innerHTML = sigHTML;
+        document.getElementById('signatureOutput').innerHTML = signature;
       }
     </script>
   </body>
